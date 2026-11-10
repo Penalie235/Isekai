@@ -1,0 +1,11 @@
+
+{
+  "name": "Isekai",
+  "short_name": "Isekai",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#1e1e2e"
+}
