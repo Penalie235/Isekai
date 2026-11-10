@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
 <meta name="robots" content="noindex, nofollow">
-
 <link rel="manifest" href="./manifest.json">
-<meta name="theme-color" content="#1e1e2e">
+<meta name="theme-color" content="#0d0b14">
 <title>Eldrasia - My Time Adventure Story</title>
 <script>
 window.onerror = function(m, s, l){
@@ -20,125 +18,135 @@ window.onerror = function(m, s, l){
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0f0f11; --panel:#1b1b1f; --panel2:#25252b; --line:#34343b;
-  --text:#ececec; --mute:#9a9aa3; --accent:#ff9800; --accent2:#ff6a3d; --ok:#4caf50; --hp:#e0533d;
-}
+:root{--bg:#0d0b14;--panel:#17141f;--panel2:#221e2e;--line:#38314a;--text:#f0ecf5;--mute:#9d94b0;--gold:#e8b867;--rose:#c4476a;--ok:#5fb98a;--hp:#d9534f}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;margin:0}
 body{background:var(--bg);color:var(--text);font-family:'Sarabun','Noto Sans Thai',sans-serif;overflow:hidden}
-#bg{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg) center/cover no-repeat}
-#bgShade{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(10,10,12,.55),rgba(10,10,12,.35) 40%,rgba(10,10,12,.7))}
-#app{position:relative;height:100vh;height:100dvh;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
 button{font-family:inherit;cursor:pointer}
-
-.top{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(20,20,23,.85);border-bottom:1px solid var(--line)}
-.top b{color:var(--accent);font-size:1.1em}
-.icon-btn{background:var(--panel2);color:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 11px}
-
-.statusbar{display:flex;align-items:center;padding:8px 14px;background:rgba(20,20,23,.75);border-bottom:1px solid var(--line);cursor:pointer}
-.statusbar > *{margin-right:8px}
-.statusbar > *:last-child{margin-right:0}
-.hp{flex:1.2;position:relative;height:22px;background:#3a2724;border-radius:11px;overflow:hidden;min-width:0}
-.hp i{position:absolute;top:0;bottom:0;left:0;width:100%;background:linear-gradient(90deg,var(--hp),#ff7a59)}
-.hp span{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:.8em;font-weight:700;text-shadow:0 1px 2px #000}
-.chip{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:2px 10px;height:22px;display:flex;align-items:center;font-size:.8em;white-space:nowrap;overflow:hidden;min-width:0}
-.chip.place{flex:1;display:block;line-height:18px;text-overflow:ellipsis}
-
-#chat{flex:1;overflow-y:auto;padding:16px 12px}
-#chat > .msg{margin-bottom:14px}
-.msg{max-width:92%;padding:12px 14px;border-radius:16px;line-height:1.65;font-size:1.02em;word-break:break-word}
-.msg.user{margin-left:auto;background:var(--accent);color:#1a1000;font-weight:700;border-bottom-right-radius:4px}
-.msg.ai{background:rgba(24,24,28,.86);border:1px solid var(--line);border-bottom-left-radius:4px;width:100%}
-.narr{color:#d8d8dd;margin:2px 0 8px}
-.narr:last-child{margin-bottom:2px}
-.npc-row{display:flex;align-items:flex-start;margin:10px 0;padding:10px;background:rgba(255,152,0,.08);border:1px solid rgba(255,152,0,.28);border-radius:14px}
-.av{flex:0 0 64px;width:64px;height:64px;margin-right:10px;border-radius:50%;border:2px solid var(--accent);object-fit:cover;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.5em;color:#fff}
-.npc-body{min-width:0;flex:1}
-.npc-name{color:var(--accent);font-weight:700;margin-bottom:2px}
-.npc-emo{color:var(--mute);font-size:.8em;font-weight:400;margin-left:6px}
-.scene-img{width:100%;border-radius:12px;margin-top:8px;border:2px solid var(--ok);display:block;cursor:pointer}
-.hint{color:var(--mute);font-size:.8em;margin-top:4px}
-#loading{display:none;color:#c9c9d0;font-size:.9em;padding:0 16px 6px}
-
-.controls{display:flex;padding:10px 12px;background:rgba(20,20,23,.9);border-top:1px solid var(--line)}
-.controls > *{margin-right:8px}
-.controls > *:last-child{margin-right:0}
-.controls input{flex:1;min-width:0;padding:12px;border-radius:12px;border:1px solid var(--line);outline:none;background:var(--panel2);color:#fff;font-family:inherit;font-size:1em}
-.controls button{padding:0 14px;border:none;border-radius:12px;font-weight:700}
-.dice-btn{background:var(--ok);color:#fff}
-.send-btn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#1a0d00}
-
-.tabs{display:flex;justify-content:space-around;background:rgba(20,20,23,.94);border-top:1px solid var(--line);padding:6px 0 calc(6px + env(safe-area-inset-bottom,0px))}
-.tabs button{background:none;border:none;color:var(--accent);font-size:.82em;display:flex;flex-direction:column;align-items:center;padding:4px 10px}
+#app{height:100vh;height:100dvh;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
+#stage{position:relative;flex:1;min-height:0;overflow:hidden;background:#000}
+#bg,#tint{position:absolute;inset:0}
+#bg{background:#15121d center/cover no-repeat;transition:opacity .5s}
+#bg.swap{opacity:0}
+#tint{background:transparent;transition:background 1.5s;pointer-events:none}
+#sprite{position:absolute;left:0;right:0;bottom:0;height:80%;display:none;align-items:flex-end;justify-content:center;pointer-events:none}
+#sprite img{max-height:100%;max-width:94%;object-fit:contain;filter:drop-shadow(0 6px 18px rgba(0,0,0,.6));animation:pop .25s ease-out}
+#sprite .av{width:130px;height:130px;flex:none;font-size:3em;margin:0 0 150px}
+@keyframes pop{from{opacity:.3;transform:translateY(10px)}to{opacity:1;transform:none}}
+.av{border-radius:50%;border:2px solid var(--gold);object-fit:cover;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+.hud{position:absolute;top:8px;left:8px;right:8px;display:flex;align-items:center;gap:6px;z-index:5}
+.hp{position:relative;width:110px;height:22px;background:rgba(40,20,20,.8);border-radius:11px;overflow:hidden;flex:none;border:1px solid rgba(255,255,255,.15)}
+.hp i{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,var(--hp),#ff8a6b)}
+.hp span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.75em;font-weight:700;text-shadow:0 1px 2px #000}
+.chip{background:rgba(13,11,20,.72);border:1px solid rgba(255,255,255,.15);border-radius:11px;padding:0 9px;height:22px;display:flex;align-items:center;font-size:.78em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.chip.grow{flex:1}
+.gear{margin-left:auto;flex:none;background:rgba(13,11,20,.72);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:11px;height:26px;padding:0 9px}
+#dlg{position:absolute;left:8px;right:8px;bottom:8px;min-height:128px;max-height:46%;overflow-y:auto;z-index:4;padding:12px 16px 14px;border-radius:14px;background:linear-gradient(180deg,rgba(23,20,31,.9),rgba(13,11,20,.95));border:1px solid var(--line);border-top:2px solid var(--gold);box-shadow:0 -6px 24px rgba(0,0,0,.45)}
+#dName{display:none;position:absolute;top:-15px;left:14px;background:var(--gold);color:#1a1000;font-weight:700;padding:2px 14px;border-radius:9px;font-size:.92em}
+#dName small{font-weight:400;margin-left:6px;opacity:.75}
+#dText{line-height:1.7;font-size:1.03em;white-space:pre-wrap;padding-top:4px}
+#dText.narr{color:#cfc8dc}
+#dNext{position:absolute;right:12px;bottom:6px;color:var(--gold);animation:bl 1s infinite;visibility:hidden}
+@keyframes bl{50%{opacity:.2}}
+#cg{display:none;position:absolute;inset:0;z-index:8;background:rgba(0,0,0,.9);align-items:center;justify-content:center;flex-direction:column}
+#cg img{max-width:100%;max-height:88%;border:2px solid var(--gold);border-radius:10px}
+#cg div{margin-top:8px;color:var(--mute);font-size:.82em}
+#ctrl{display:none;padding:8px 10px;background:var(--panel);border-top:1px solid var(--line)}
+#choices{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
+#choices button{background:var(--panel2);border:1px solid var(--gold);color:var(--text);border-radius:11px;padding:10px 12px;text-align:left;font-size:.95em}
+#choices button:active{background:var(--gold);color:#1a1000}
+.inrow{display:flex;gap:8px}
+.inrow input{flex:1;min-width:0;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);color:#fff;font:inherit;outline:none}
+.inrow button{padding:0 14px;border:none;border-radius:12px;font-weight:700}
+.dice{background:var(--ok);color:#06210f}
+.dice.pulse{animation:bl .8s infinite}
+.send{background:linear-gradient(135deg,var(--gold),#d98a4a);color:#1a1000}
+.tabs{display:flex;justify-content:space-around;background:var(--panel);border-top:1px solid var(--line);padding:5px 0 calc(5px + env(safe-area-inset-bottom,0px))}
+.tabs button{background:none;border:none;color:var(--gold);font-size:.74em;display:flex;flex-direction:column;align-items:center;padding:3px 8px}
 .tabs button b{font-size:1.5em;font-weight:400}
-
-.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.75);z-index:20;align-items:flex-end;justify-content:center}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:20;align-items:flex-end;justify-content:center}
 .modal.open{display:flex}
 .sheet{background:var(--panel);width:100%;max-width:640px;max-height:90vh;max-height:90dvh;overflow-y:auto;border-radius:20px 20px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom,0px));border:1px solid var(--line)}
-.sheet h3{margin:0 0 12px;color:var(--accent)}
-.sheet h4{margin:20px 0 4px;color:var(--accent);border-top:1px solid var(--line);padding-top:14px}
+.sheet h3{margin:0 0 12px;color:var(--gold)}
+.sheet h4{margin:20px 0 4px;color:var(--gold);border-top:1px solid var(--line);padding-top:14px}
 .sheet label{display:block;margin:12px 0 4px;color:var(--mute);font-size:.9em}
-.sheet input[type=text],.sheet input[type=password],.sheet select,.sheet textarea{width:100%;padding:11px;border-radius:10px;border:1px solid var(--line);background:#121214;color:#fff;font-family:inherit;font-size:1em}
+.sheet input[type=text],.sheet input[type=password],.sheet select,.sheet textarea{width:100%;padding:11px;border-radius:10px;border:1px solid var(--line);background:#0f0d16;color:#fff;font:inherit}
 .sheet textarea{min-height:200px;line-height:1.5}
-.sheet .chk{display:flex;align-items:center;color:var(--text)}
-.sheet .chk input{margin-right:8px}
-.btn{display:block;width:100%;padding:13px;border:none;border-radius:12px;font-weight:700;margin-top:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#1a0d00}
+.sheet textarea.s{min-height:100px}
+.chk{display:flex!important;align-items:center;color:var(--text)!important}
+.chk input{margin-right:8px}
+.btn{display:block;width:100%;padding:13px;border:none;border-radius:12px;font-weight:700;margin-top:10px;background:linear-gradient(135deg,var(--gold),#d98a4a);color:#1a1000}
 .btn.grey{background:var(--panel2);color:#fff;border:1px solid var(--line)}
-.btn.red{background:#3a1d1a;color:#ff8a78;border:1px solid #5a2b25}
-.row2{display:flex}.row2 .btn{margin-top:10px;margin-right:8px}.row2 .btn:last-child{margin-right:0}
+.btn.red{background:#3a1d24;color:#ff8a98;border:1px solid #5a2b35}
+.row2{display:flex;gap:8px}
 .note{color:var(--mute);font-size:.8em;margin-top:4px;line-height:1.5}
-
 .stat-hp{height:26px;position:relative;background:#3a2724;border-radius:13px;overflow:hidden;margin-bottom:12px}
-.stat-hp i{position:absolute;top:0;bottom:0;left:0;background:linear-gradient(90deg,var(--hp),#ff7a59)}
-.stat-hp span{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;font-weight:700;text-shadow:0 1px 2px #000}
-.stat-line{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
-.stat-line span:first-child{color:var(--mute)}
-.items{display:flex;flex-wrap:wrap;margin-top:10px}
+.stat-hp i{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,var(--hp),#ff8a6b)}
+.stat-hp span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:700;text-shadow:0 1px 2px #000}
+.stat-line{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+.stat-line span:first-child{color:var(--mute);flex:none}
+.stat-line span:last-child{text-align:right}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:12px 0}
+.grid5 div{background:var(--panel2);border:1px solid var(--line);border-radius:10px;text-align:center;padding:6px 0;font-size:.8em;color:var(--mute)}
+.grid5 b{display:block;color:var(--gold);font-size:1.3em}
+.items{display:flex;flex-wrap:wrap;margin-top:6px}
 .items span{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:5px 10px;font-size:.9em;margin:0 6px 6px 0}
-
+.sub{color:var(--gold);margin:14px 0 2px;font-size:.9em}
+.rel{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:.9em}
+.rel i{flex:1;height:8px;background:#2c2236;border-radius:4px;overflow:hidden;position:relative}
+.rel i u{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,#c4476a,#ff8fab)}
 .cast-item{display:flex;align-items:center;padding:10px;border:1px solid var(--line);border-radius:12px;margin-bottom:8px;background:var(--panel2);cursor:pointer}
-.cast-item .av{flex:0 0 48px;width:48px;height:48px;font-size:1.2em;margin-right:12px}
+.cast-item .av{width:48px;height:48px;flex:none;font-size:1.2em;margin-right:12px;background-size:cover}
 .cast-item small{color:var(--mute)}
-.tile-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-gap:8px;margin-top:6px}
-.tile{width:100%;padding-bottom:100%;height:0;position:relative;border:1.5px dashed #555;border-radius:12px;background:#121214 center/cover no-repeat;cursor:pointer}
-.tile span{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;color:#777;font-size:1.4em}
-.tile.has{border-style:solid;border-color:var(--accent)}
+.cast-item .x{margin-left:auto;background:none;border:none;color:#ff8a98;font-size:1.2em}
+.tile-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:6px}
+.tile{width:100%;padding-bottom:100%;height:0;position:relative;border:1.5px dashed #555;border-radius:12px;background:#0f0d16 center/cover no-repeat;cursor:pointer}
+.tile span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#777;font-size:1.4em}
+.tile.has{border-style:solid;border-color:var(--gold)}
 .tile.has span{display:none}
 .tile-lab{text-align:center;font-size:.75em;color:var(--mute);margin-top:3px}
 .tile.big{width:110px;padding-bottom:110px}
 .empty{color:var(--mute);text-align:center;padding:18px 0;line-height:1.6}
+.hmsg{padding:8px 10px;border-radius:10px;margin-bottom:8px;line-height:1.6;white-space:pre-wrap;font-size:.92em}
+.hmsg.u{background:#3b2f17;border:1px solid #6b5521;margin-left:24px}
+.hmsg.a{background:var(--panel2);border:1px solid var(--line);margin-right:24px}
 </style>
 </head>
 <body>
-<div id="bg"></div><div id="bgShade"></div>
-
 <div id="app">
-  <div class="top">
-    <b>Eldrasia AI GM</b>
-    <button class="icon-btn" onclick="openSettings()">⚙️ ตั้งค่า</button>
+  <div id="stage" onclick="advance()">
+    <div id="bg"></div><div id="tint"></div>
+    <div id="sprite"></div>
+    <div class="hud" onclick="event.stopPropagation()">
+      <div class="hp" onclick="openModal('statusModal')"><i id="hpFill"></i><span id="hpText">HP 100/100</span></div>
+      <div class="chip" id="moneyChip">🪙 0</div>
+      <div class="chip grow" id="placeChip">📍</div>
+      <div class="chip" id="timeChip">🕒</div>
+      <button class="gear" onclick="openSettings()">⚙️</button>
+    </div>
+    <div id="dlg">
+      <div id="dName"></div>
+      <div id="dText"></div>
+      <div id="dNext">▼</div>
+    </div>
+    <div id="cg" onclick="event.stopPropagation();cgClick()"><img id="cgImg" alt="CG"><div>แตะเพื่อปิด (ตั้งเป็นฉากหลังได้)</div></div>
   </div>
 
-  <div class="statusbar" onclick="openModal('statusModal')">
-    <div class="hp"><i id="hpFill"></i><span id="hpText">HP 100/100</span></div>
-    <div class="chip" id="moneyChip">🪙 0</div>
-    <div class="chip place" id="placeChip">📍 ป่าเอเวอร์กรีน</div>
-  </div>
-
-  <div id="chat"></div>
-  <div id="loading">GM กำลังพิมพ์...</div>
-
-  <div class="controls">
-    <input type="text" id="userInput" placeholder="คุณจะทำอะไรต่อไป..." onkeypress="if(event.key==='Enter')sendMessage()">
-    <button class="dice-btn" onclick="rollDice()">🎲 ทอยเต๋า</button>
-    <button class="send-btn" onclick="sendMessage()">ส่ง</button>
+  <div id="ctrl">
+    <div id="choices"></div>
+    <div class="inrow">
+      <input type="text" id="userInput" placeholder="คุณจะทำอะไรต่อไป..." onkeypress="if(event.key==='Enter')sendMessage()">
+      <button class="dice" id="diceBtn" onclick="rollDice()">🎲</button>
+      <button class="send" onclick="sendMessage()">ส่ง</button>
+    </div>
   </div>
 
   <div class="tabs">
     <button onclick="openModal('statusModal')"><b>📊</b>สถานะ</button>
     <button onclick="openCast()"><b>👥</b>ตัวละคร</button>
-    <button onclick="generateScene()"><b>🖼️</b>วาดฉาก</button>
-    <button onclick="pickImage(setBackground,1280,.75)"><b>🌄</b>ฉากหลัง</button>
+    <button onclick="openLocs()"><b>📍</b>สถานที่</button>
+    <button onclick="drawEvent()"><b>🎨</b>วาดภาพ</button>
+    <button onclick="openModal('toolsModal')"><b>🛠️</b>เครื่องมือ</button>
   </div>
 </div>
 
@@ -148,14 +156,12 @@ button{font-family:inherit;cursor:pointer}
 <div id="settings" class="modal" onclick="if(event.target===this)closeModal('settings')">
   <div class="sheet">
     <h3>ตั้งค่า</h3>
-
     <label>AI ที่ใช้เล่าเรื่อง</label>
     <select id="cProv" onchange="showProv()">
       <option value="gemini">Gemini (Google)</option>
       <option value="claude">Claude (Anthropic)</option>
       <option value="openai">OpenAI-compatible (OpenRouter, LM Studio, KoboldCpp ฯลฯ)</option>
     </select>
-
     <div id="pGemini">
       <label>Gemini API Key</label><input type="password" id="gemKey" placeholder="AIzaSy...">
       <label>ชื่อโมเดล</label><input type="text" id="gemModel" placeholder="gemini-2.5-flash">
@@ -173,7 +179,15 @@ button{font-family:inherit;cursor:pointer}
 
     <h4>พรอมต์หลักของ GM</h4>
     <textarea id="cPrompt"></textarea>
+    <div class="note">แท็กระบบ (Scene, Choices, Rel ฯลฯ) ถูกแนบให้อัตโนมัติ ไม่ต้องใส่ในพรอมต์นี้</div>
     <button class="btn grey" onclick="resetPrompt()">คืนค่าพรอมต์เริ่มต้น</button>
+
+    <h4>Lorebook (ข้อมูลโลก/ตัวละครที่ต้องจำ)</h4>
+    <textarea id="cLore" class="s" placeholder="เช่น เอเลน่า: นักดาบหญิงอายุ 22 ผมเงิน ชอบของหวาน..."></textarea>
+    <h4>ความจำเรื่องราว (สรุปอัตโนมัติ แก้ได้)</h4>
+    <textarea id="cMem" class="s"></textarea>
+    <h4>กฎที่เรียนรู้จากข้อผิดพลาด (บรรทัดละ 1 ข้อ)</h4>
+    <textarea id="cRules" class="s"></textarea>
 
     <h4>สร้างภาพ</h4>
     <label>ผู้ให้บริการสร้างภาพ</label>
@@ -189,15 +203,15 @@ button{font-family:inherit;cursor:pointer}
     </div>
     <label>สไตล์ภาพที่ต่อท้ายพรอมต์ทุกครั้ง</label>
     <input type="text" id="imgStyle" placeholder="fantasy art style, highly detailed, masterpiece">
+    <label class="chk"><input type="checkbox" id="cAuto"> สร้างฉากหลังอัตโนมัติเมื่อไม่มีภาพของสถานที่นั้น</label>
 
     <h4>อื่น ๆ</h4>
     <label class="chk"><input type="checkbox" id="cUrlPick"> เลือกไฟล์รูปไม่ได้ในแอปนี้ ให้วางลิงก์รูปแทน</label>
     <div class="row2">
-      <button class="btn grey" onclick="pickImage(setBackground,1280,.75)">เลือกฉากหลัง</button>
-      <button class="btn grey" onclick="setBackground('')">ล้างฉากหลัง</button>
+      <button class="btn grey" onclick="pickImage(setStageBg,1280,.75)">เลือกฉากหลัง</button>
+      <button class="btn grey" onclick="setStageBg('')">ล้างฉากหลัง</button>
     </div>
     <button class="btn red" onclick="resetStory()">เริ่มเรื่องใหม่ (ลบประวัติแชท)</button>
-
     <button class="btn" onclick="saveSettings()">บันทึกการตั้งค่า</button>
     <button class="btn grey" onclick="closeModal('settings')">ปิด</button>
   </div>
@@ -206,36 +220,57 @@ button{font-family:inherit;cursor:pointer}
 <!-- Status -->
 <div id="statusModal" class="modal" onclick="if(event.target===this)closeModal('statusModal')">
   <div class="sheet">
-    <h3>📊 สถานะปัจจุบัน</h3>
+    <h3>📊 สถานะ</h3>
     <div class="stat-hp"><i id="sHpFill"></i><span id="sHpText"></span></div>
+    <div class="stat-line"><span>เลเวล</span><span id="sLv"></span></div>
+    <div class="stat-line"><span>ธาตุ</span><span id="sElem"></span></div>
     <div class="stat-line"><span>เงิน</span><span id="sMoney"></span></div>
     <div class="stat-line"><span>สถานที่</span><span id="sPlace"></span></div>
-    <div class="items" id="sItems"></div>
+    <div class="stat-line"><span>เวลา / อากาศ</span><span id="sTime"></span></div>
+    <div class="grid5" id="sStats"></div>
+    <div class="sub">⚔️ สกิล</div><div class="items" id="sSkills"></div>
+    <div class="sub">🎒 คลังไอเทม</div><div class="items" id="sItems"></div>
+    <div class="sub">❤️ ความสัมพันธ์</div><div id="sRels"></div>
     <button class="btn" onclick="closeModal('statusModal')">ปิด</button>
   </div>
 </div>
 
 <!-- Cast -->
-<div id="castModal" class="modal" onclick="if(event.target===this)closeModal('castModal')">
-  <div class="sheet" id="castSheet"></div>
+<div id="castModal" class="modal" onclick="if(event.target===this)closeModal('castModal')"><div class="sheet" id="castSheet"></div></div>
+<!-- Locations -->
+<div id="locModal" class="modal" onclick="if(event.target===this)closeModal('locModal')"><div class="sheet" id="locSheet"></div></div>
+
+<!-- Tools -->
+<div id="toolsModal" class="modal" onclick="if(event.target===this)closeModal('toolsModal')">
+  <div class="sheet">
+    <h3>🛠️ เครื่องมือ</h3>
+    <button class="btn grey" onclick="closeModal('toolsModal');regenerate()">🔄 สร้างคำตอบล่าสุดใหม่</button>
+    <button class="btn grey" onclick="closeModal('toolsModal');editLast()">✏️ แก้ไขข้อความ GM ล่าสุด</button>
+    <button class="btn grey" onclick="closeModal('toolsModal');rewind()">⏪ ย้อนกลับ 1 เทิร์น</button>
+    <button class="btn grey" onclick="closeModal('toolsModal');reportMistake()">🚩 แจ้งข้อผิดพลาดของ GM (ให้จำเป็นกฎ)</button>
+    <button class="btn grey" onclick="closeModal('toolsModal');openHistory()">📜 ประวัติเรื่องราว</button>
+    <button class="btn grey" onclick="closeModal('toolsModal');skipAll()">⏭️ ข้ามบทพูดทั้งหมด</button>
+    <button class="btn" onclick="closeModal('toolsModal')">ปิด</button>
+  </div>
 </div>
+<div id="histModal" class="modal" onclick="if(event.target===this)closeModal('histModal')"><div class="sheet"><h3>📜 ประวัติ</h3><div id="histBody"></div><button class="btn" onclick="closeModal('histModal')">ปิด</button></div></div>
+<div id="editModal" class="modal"><div class="sheet"><h3>✏️ แก้ไขข้อความ</h3><textarea id="eText"></textarea><button class="btn" onclick="editSave()">บันทึก</button><button class="btn grey" onclick="closeModal('editModal')">ยกเลิก</button></div></div>
 
 <script>
-var chatHistory = [];
-var currentScenePrompt = "";
-var gs = { hp:100, hpMax:100, money:"0", place:"ป่าเอเวอร์กรีน", items:"ใบอนุญาตนักผจญภัย" };
-var npcs = {};
+var chatHistory = [], currentScenePrompt = "", lastAction = "", lastChoices = [], lastNames = [];
+var mem = "", rules = "", rels = {}, locs = {}, npcs = {};
+var gs = defaultGs();
 var draft = null, draftOld = null;
+var beats = [], bi = 0, typing = null, fullHtml = '', busy = false, summing = false, editCb = null;
+
+function defaultGs(){ return { hp:100, hpMax:100, money:"0", place:"ป่าเอเวอร์กรีน", items:"ใบอนุญาตนักผจญภัย", lv:"Rank F Lv.1", elem:"-", skills:"-", time:"เช้า", weather:"แจ่มใส", stats:{STR:5,DEX:5,INT:5,CHA:5,LUK:5} }; }
 
 var CFG_DEFAULT = {
-  provider:'gemini',
-  gemKey:'', gemModel:'gemini-2.5-flash',
+  provider:'gemini', gemKey:'', gemModel:'gemini-2.5-flash',
   claudeKey:'', claudeModel:'claude-sonnet-5-5',
   oaiBase:'', oaiKey:'', oaiModel:'',
-  prompt:'',
-  imgProv:'pollinations', imgBase:'', imgKey:'', imgModel:'',
-  imgStyle:'fantasy art style, highly detailed, masterpiece',
-  urlPick:false
+  prompt:'', lore:'', imgProv:'pollinations', imgBase:'', imgKey:'', imgModel:'',
+  imgStyle:'fantasy anime art style, highly detailed, masterpiece', urlPick:false, autoBg:true
 };
 var cfg = JSON.parse(JSON.stringify(CFG_DEFAULT));
 
@@ -250,7 +285,6 @@ var EMOTIONS = {
   "อยากรู้":["อยากรู้","สงสัย","สนใจ","ครุ่นคิด"]
 };
 
-// System Prompt เริ่มต้น (แก้ได้ในหน้าตั้งค่า)
 var DEFAULT_PROMPT = `
 1. Role & Core Identity (บทบาทของคุณ)
 คุณคือสุดยอด Game Master (GM) ของเกม Text-based RPG แนว Open World ที่ชื่อว่า "โลกเอลดราเซีย (Eldrasia)" หน้าที่ของคุณคือบรรยายโลกและดำเนินเรื่องด้วย "มุมมองบุคคลที่ 3" สลับบทสนทนาสไตล์ไลต์โนเวลแฟนตาซีคุณภาพสูง บรรยายให้เห็นภาพชัดเจนทั้งรูป รส กลิ่น เสียง และอารมณ์ความรู้สึก
@@ -285,36 +319,47 @@ var DEFAULT_PROMPT = `
 - อิสระสูงสุด: ซื้อบ้าน เช่าห้อง ทำฟาร์ม ตกปลา เปิดร้านค้า บริหารเมือง หรือออกผจญภัยก็ได้
 - ระบบทอยลูกเต๋า (Dice Roll): หากผู้เล่นทำสิ่งที่ฝืนธรรมชาติ หรือสู้ศัตรูที่เก่งกว่ามาก ให้ GM หยุดบรรยายผลลัพธ์ และพิมพ์แค่ \`[ระบบ: โปรดทอยลูกเต๋าเพื่อตรวจสอบความสำเร็จ]\` แล้วรอผู้เล่นทอยเต๋าตอบกลับค่อยเล่าผล
 - ระบบย้อนเวลา (Rewind): หากผู้เล่นตายหรือพลาด และพิมพ์บอกว่า "ขอย้อนเวลา" ให้ GM ลบผลลัพธ์ที่เพิ่งเกิดขึ้น และบรรยายเหตุการณ์ก่อนหน้านั้นใหม่เพื่อล้างไพ่
+`;
 
-7. UI & Technical Tags (คำสั่งเชื่อมต่อหน้าเว็บ - GM ต้องใช้ทุกครั้ง)
-- เมื่อ NPC พูดหรือแสดงอารมณ์ (สำคัญมาก): ให้แทรกแท็กนี้ไว้หน้าประโยคเสมอ \`[NPC: ชื่อ, อารมณ์: อารมณ์]\` (เช่น [NPC: เอเลน่า, อารมณ์: เขินอาย หน้าแดง])
-- เมื่อมีการเปลี่ยนแปลงสเตตัส: แทรกไว้ท้ายข้อความ \`[Status Update: HP xx/100, เงิน: xx, สถานที่: xx, ไอเทม: xx]\`
-- เมื่อผู้เล่นเดินทางถึงสถานที่ใหม่ที่สำคัญ: \`[Scene: คำอธิบายฉากภาษาอังกฤษสั้นๆ เพื่อนำไปเจนรูป]\`
+// แท็กระบบ: แนบอัตโนมัติทุกครั้ง (แทนส่วนที่ 7 เดิม)
+var TAGS = `
+7. รูปแบบการตอบแบบวิชวลโนเวล + แท็กเชื่อมหน้าเว็บ (GM ต้องทำตามทุกครั้ง ใช้แทนส่วนที่ 7 เดิมถ้ามี)
+- ตอบเป็นย่อหน้าสั้นๆ (1-3 ประโยค/ย่อหน้า) เว้นบรรทัดระหว่างย่อหน้า เพราะหน้าเว็บจะเล่าทีละย่อหน้าแบบวิชวลโนเวล
+- ทุกครั้งที่ NPC พูด ให้ขึ้นบรรทัดใหม่ด้วยแท็ก [NPC: ชื่อ, อารมณ์: อารมณ์] แล้วตามด้วยคำพูดในย่อหน้าเดียว (อารมณ์เลือกจาก: มีความสุข เศร้า โกรธ เขินอาย มั่นใจ เฉยๆ ตกใจ อยากรู้) ใช้ชื่อ NPC เดิมทุกครั้ง การบรรยายอื่นๆ อยู่ย่อหน้าแยกโดยไม่ใส่แท็ก
+- ท้ายข้อความทุกครั้ง ให้ใส่ [Choices: ตัวเลือก 1 | ตัวเลือก 2 | ตัวเลือก 3] (3-4 ข้อ สั้น เป็นการกระทำของผู้เล่น)
+- เมื่อสเตตัสเปลี่ยน: [Status Update: HP xx/100, เงิน: xx, สถานที่: xx, ไอเทม: a/b/c, เลเวล: xx, ธาตุ: xx, สกิล: a/b, STR: n, DEX: n, INT: n, CHA: n, LUK: n] (ใส่เท่าที่เปลี่ยนได้ ค่าในแต่ละช่องห้ามมีเครื่องหมายจุลภาค ใช้ / คั่นรายการ)
+- เมื่อย้ายสถานที่หรือฉากเปลี่ยนมาก: [Scene: ชื่อสถานที่ภาษาไทย | short English visual description, no characters]
+- ช่วงเหตุการณ์สำคัญ/ฉากแอคชั่น/ฉากพิเศษ: [Action: English description of the key moment with characters]
+- เมื่อเวลา/อากาศเปลี่ยน: [Time: เช้า|เที่ยง|บ่าย|เย็น|ดึก, อากาศ: xx]
+- เมื่อความสัมพันธ์กับ NPC เปลี่ยน: [Rel: ชื่อ, +5] หรือ [Rel: ชื่อ, -10] (ช่วง -100 ถึง 100)
+- ห้ามอธิบายแท็กให้ผู้เล่นฟัง
 `;
 
 function byId(id){ return document.getElementById(id); }
 
 /* ---------- storage ---------- */
-function store(key, val){
+function store(key, val, quiet){
   try { localStorage.setItem(key, val); return true; }
-  catch(e){ alert("เก็บข้อมูลไม่ได้ (พื้นที่เต็มหรือแอปนี้ไม่อนุญาต) ลองลบรูปที่ไม่ใช้ออกก่อนนะ"); return false; }
+  catch(e){ if(!quiet) alert("เก็บข้อมูลไม่ได้ (พื้นที่เต็มหรือแอปนี้ไม่อนุญาต) ลองลบรูปที่ไม่ใช้ออกก่อนนะ"); return false; }
 }
-function saveState(){ store('eld_state', JSON.stringify({ chatHistory: chatHistory, status: gs, currentScenePrompt: currentScenePrompt })); }
+function saveState(){ store('eld_state', JSON.stringify({ chatHistory:chatHistory, status:gs, currentScenePrompt:currentScenePrompt, mem:mem, rules:rules, rels:rels }), true); }
 function saveNpcs(){ return store('eld_npcs', JSON.stringify(npcs)); }
+function saveLocs(){ return store('eld_locs', JSON.stringify(locs), true); }
 
 function loadAll(){
   try { var c = JSON.parse(localStorage.getItem('eld_cfg') || 'null'); if(c){ for(var k in c) cfg[k] = c[k]; } } catch(e){}
   try { var old = localStorage.getItem('geminiKey'); if(old && !cfg.gemKey) cfg.gemKey = old; } catch(e){}
   try { var s = JSON.parse(localStorage.getItem('eld_state') || 'null');
-    if(s){ chatHistory = s.chatHistory || []; for(var k2 in (s.status||{})) gs[k2] = s.status[k2]; currentScenePrompt = s.currentScenePrompt || ""; } } catch(e){}
+    if(s){ chatHistory = s.chatHistory || []; for(var k2 in (s.status||{})) gs[k2] = s.status[k2];
+      currentScenePrompt = s.currentScenePrompt || ""; mem = s.mem || ""; rules = s.rules || ""; rels = s.rels || {}; } } catch(e){}
   try { npcs = JSON.parse(localStorage.getItem('eld_npcs') || '{}') || {}; } catch(e){ npcs = {}; }
-  try { var bg = localStorage.getItem('eld_bg'); if(bg) applyBg(bg); } catch(e){}
+  try { locs = JSON.parse(localStorage.getItem('eld_locs') || '{}') || {}; } catch(e){ locs = {}; }
+  try { var bg = localStorage.getItem('eld_bg'); if(bg) byId('bg').style.backgroundImage = 'url("' + bg + '")'; } catch(e){}
 }
 
 /* ---------- modal & settings ---------- */
 function openModal(id){ byId(id).classList.add('open'); }
 function closeModal(id){ byId(id).classList.remove('open'); }
-
 function showProv(){
   var p = byId('cProv').value;
   byId('pGemini').style.display = p === 'gemini' ? 'block' : 'none';
@@ -327,11 +372,12 @@ function openSettings(){
   byId('gemKey').value = cfg.gemKey; byId('gemModel').value = cfg.gemModel;
   byId('claudeKey').value = cfg.claudeKey; byId('claudeModel').value = cfg.claudeModel;
   byId('oaiBase').value = cfg.oaiBase; byId('oaiKey').value = cfg.oaiKey; byId('oaiModel').value = cfg.oaiModel;
-  byId('cPrompt').value = cfg.prompt && cfg.prompt.trim() ? cfg.prompt : DEFAULT_PROMPT;
+  byId('cPrompt').value = getPrompt();
+  byId('cLore').value = cfg.lore; byId('cMem').value = mem; byId('cRules').value = rules;
   byId('cImgProv').value = cfg.imgProv;
   byId('imgBase').value = cfg.imgBase; byId('imgKey').value = cfg.imgKey; byId('imgModel').value = cfg.imgModel;
   byId('imgStyle').value = cfg.imgStyle;
-  byId('cUrlPick').checked = !!cfg.urlPick;
+  byId('cAuto').checked = !!cfg.autoBg; byId('cUrlPick').checked = !!cfg.urlPick;
   showProv(); openModal('settings');
 }
 function saveSettings(){
@@ -341,35 +387,26 @@ function saveSettings(){
   cfg.oaiBase = byId('oaiBase').value.trim().replace(/\/+$/, ''); cfg.oaiKey = byId('oaiKey').value.trim(); cfg.oaiModel = byId('oaiModel').value.trim();
   var pr = byId('cPrompt').value;
   cfg.prompt = pr.trim() === DEFAULT_PROMPT.trim() ? '' : pr;
+  cfg.lore = byId('cLore').value; mem = byId('cMem').value.trim(); rules = byId('cRules').value.trim();
   cfg.imgProv = byId('cImgProv').value;
   cfg.imgBase = byId('imgBase').value.trim().replace(/\/+$/, ''); cfg.imgKey = byId('imgKey').value.trim(); cfg.imgModel = byId('imgModel').value.trim();
   cfg.imgStyle = byId('imgStyle').value.trim();
-  cfg.urlPick = byId('cUrlPick').checked;
+  cfg.autoBg = byId('cAuto').checked; cfg.urlPick = byId('cUrlPick').checked;
   if(!store('eld_cfg', JSON.stringify(cfg))) return;
-  closeModal('settings');
-  if(chatHistory.length === 0){
-    byId('chat').innerHTML = ''; showWelcome(true);
-  }
+  saveState(); closeModal('settings');
+  if(chatHistory.length === 0) showWelcome(hasKey());
 }
-function resetPrompt(){
-  if(confirm("คืนพรอมต์เป็นค่าเริ่มต้น? ข้อความที่แก้ไว้จะหาย")) byId('cPrompt').value = DEFAULT_PROMPT;
-}
+function resetPrompt(){ if(confirm("คืนพรอมต์เป็นค่าเริ่มต้น? ข้อความที่แก้ไว้จะหาย")) byId('cPrompt').value = DEFAULT_PROMPT; }
 function resetStory(){
-  if(!confirm("ลบประวัติแชทและสถานะทั้งหมด?")) return;
-  chatHistory = []; currentScenePrompt = "";
-  gs = { hp:100, hpMax:100, money:"0", place:"ป่าเอเวอร์กรีน", items:"ใบอนุญาตนักผจญภัย" };
+  if(!confirm("ลบประวัติแชท ความจำ และสถานะทั้งหมด? (ตัวละครและสถานที่ยังอยู่)")) return;
+  chatHistory = []; currentScenePrompt = ""; mem = ""; rels = {}; lastChoices = []; gs = defaultGs();
   try { localStorage.removeItem('eld_state'); } catch(e){}
-  byId('chat').innerHTML = '';
-  renderStatus(); showWelcome(false); closeModal('settings');
+  renderStatus(); showWelcome(hasKey()); closeModal('settings');
 }
 
 /* ---------- images ---------- */
 function pickImage(cb, maxSize, quality){
-  if(cfg.urlPick){
-    var u = prompt("วางลิงก์รูป (https://...)");
-    if(u && u.trim()) cb(u.trim());
-    return;
-  }
+  if(cfg.urlPick){ var u = prompt("วางลิงก์รูป (https://...)"); if(u && u.trim()) cb(u.trim()); return; }
   var p = byId('picker'); p.value = '';
   p.onchange = function(){
     var f = p.files[0]; if(!f) return;
@@ -389,20 +426,90 @@ function pickImage(cb, maxSize, quality){
   };
   p.click();
 }
-function applyBg(v){ byId('bg').style.backgroundImage = v ? 'url("' + v + '")' : 'none'; }
-function setBackground(v){
-  if(v){ if(!store('eld_bg', v)) return; } else { try { localStorage.removeItem('eld_bg'); } catch(e){} }
-  applyBg(v);
+function setStageBg(v){
+  var bg = byId('bg'); bg.classList.add('swap');
+  setTimeout(function(){
+    bg.style.backgroundImage = v ? 'url("' + v + '")' : 'none';
+    bg.classList.remove('swap');
+  }, 450);
+  if(v){ if(v.length < 600000) store('eld_bg', v, true); } else { try { localStorage.removeItem('eld_bg'); } catch(e){} }
+}
+function genImage(prompt, kind){
+  var full = prompt + (cfg.imgStyle ? ', ' + cfg.imgStyle : '');
+  if(cfg.imgProv === 'pollinations'){
+    var w = kind === 'bg' ? 768 : 768, h = kind === 'bg' ? 1024 : 768;
+    var url = 'https://image.pollinations.ai/prompt/' + encodeURIComponent(full) + '?width=' + w + '&height=' + h + '&nologo=true&seed=' + Math.floor(Math.random() * 1e6);
+    return new Promise(function(res, rej){ var i = new Image(); i.onload = function(){ res(url); }; i.onerror = function(){ rej(new Error('โหลดรูปไม่สำเร็จ')); }; i.src = url; });
+  }
+  var headers = { 'Content-Type': 'application/json' };
+  if(cfg.imgKey) headers['Authorization'] = 'Bearer ' + cfg.imgKey;
+  return fetch(cfg.imgBase + '/images/generations', { method:'POST', headers:headers, body: JSON.stringify({ model:cfg.imgModel, prompt:full, n:1, size:'1024x1024' }) })
+    .then(function(r){ return r.json(); }).then(function(d){
+      if(d.error) throw new Error(errMsg(d));
+      var it = d.data && d.data[0]; if(!it) throw new Error('ไม่ได้รับรูปจากเซิร์ฟเวอร์');
+      return it.url ? it.url : 'data:image/png;base64,' + it.b64_json;
+    });
+}
+function findLoc(n){
+  n = (n || '').trim(); if(!n) return null;
+  for(var k in locs){ if(k && (n.indexOf(k) >= 0 || k.indexOf(n) >= 0)) return k; }
+  return null;
+}
+function sceneChange(name, desc){
+  var k = findLoc(name);
+  if(k && locs[k].img){ setStageBg(locs[k].img); return; }
+  if(cfg.autoBg && cfg.imgProv !== 'off'){
+    genImage(desc + ', background scenery, no characters', 'bg').then(function(u){
+      setStageBg(u);
+      if(/^http/.test(u)){ locs[k || name] = { img:u }; saveLocs(); }
+    }).catch(function(){});
+  }
+}
+function looksFor(){
+  return lastNames.map(function(n){ var p = findNpc(n); return p && p.look ? n + ': ' + p.look : ''; }).filter(Boolean).join('; ');
+}
+function drawEvent(){
+  if(cfg.imgProv === 'off'){ alert("ปิดการสร้างภาพอยู่ เปิดได้ในหน้าตั้งค่า"); return; }
+  var base = lastAction || currentScenePrompt;
+  if(!base){ alert("ยังไม่มีเหตุการณ์ให้วาด ลองเล่นต่อก่อนนะ"); return; }
+  var lk = looksFor();
+  var cg = byId('cg'), im = byId('cgImg'); im.removeAttribute('src'); im.alt = '🎨 กำลังวาด...'; cg.style.display = 'flex';
+  genImage(base + (lk ? ', characters: ' + lk : ''), 'cg').then(function(u){ im.src = u; }).catch(function(e){ im.alt = '❌ ' + e.message; });
+}
+function cgClick(){
+  var src = byId('cgImg').getAttribute('src');
+  byId('cg').style.display = 'none';
+  if(src && confirm("ตั้งรูปนี้เป็นฉากหลัง?")) setStageBg(src);
 }
 
 /* ---------- status ---------- */
 function applyStatus(s){
   var hp = s.match(/HP\s*:?\s*(\d+)\s*\/\s*(\d+)/i);
   if(hp){ gs.hp = +hp[1]; gs.hpMax = +hp[2]; }
-  var mo = s.match(/เงิน\s*:\s*([^,]+)/); if(mo) gs.money = mo[1].trim();
-  var pl = s.match(/สถานที่\s*:\s*([^,]+)/); if(pl) gs.place = pl[1].trim();
-  var it = s.match(/ไอเทม\s*:\s*(.+)$/); if(it) gs.items = it[1].trim();
+  var map = { 'เงิน':'money', 'สถานที่':'place', 'ไอเทม':'items', 'เลเวล':'lv', 'ธาตุ':'elem', 'สกิล':'skills' };
+  s.split(',').forEach(function(p){
+    var i = p.indexOf(':'); if(i < 0) return;
+    var k = p.slice(0, i).trim(), v = p.slice(i + 1).trim(); if(!v) return;
+    if(map[k]) gs[map[k]] = v;
+    else if(gs.stats[k.toUpperCase()] !== undefined && !isNaN(+v)) gs.stats[k.toUpperCase()] = +v;
+  });
   renderStatus();
+}
+function setTime(v){
+  var t = v.split(',')[0].trim(); if(t) gs.time = t;
+  var w = v.match(/อากาศ\s*:\s*(.+)/); if(w) gs.weather = w[1].trim();
+  renderStatus();
+}
+function tintFor(t){
+  if(/ดึก|คืน|มืด/.test(t)) return 'rgba(10,20,70,.5)';
+  if(/เย็น|อาทิตย์ตก/.test(t)) return 'rgba(255,110,60,.22)';
+  if(/เช้า|รุ่ง/.test(t)) return 'rgba(255,210,140,.1)';
+  return 'transparent';
+}
+function chips(box, str){
+  box.innerHTML = '';
+  String(str).split(/[\/,、]/).forEach(function(x){ x = x.trim(); if(!x || x === '-') return; var s = document.createElement('span'); s.textContent = x; box.appendChild(s); });
+  if(!box.children.length){ var e = document.createElement('span'); e.textContent = 'ยังไม่มี'; box.appendChild(e); }
 }
 function renderStatus(){
   var pct = Math.max(0, Math.min(100, gs.hp / (gs.hpMax || 100) * 100));
@@ -410,12 +517,21 @@ function renderStatus(){
   byId('hpFill').style.width = pct + '%'; byId('hpText').textContent = hpTxt;
   byId('moneyChip').textContent = '🪙 ' + gs.money;
   byId('placeChip').textContent = '📍 ' + gs.place;
+  byId('timeChip').textContent = '🕒 ' + gs.time + ' · ' + gs.weather;
+  byId('tint').style.background = tintFor(gs.time);
   byId('sHpFill').style.width = pct + '%'; byId('sHpText').textContent = hpTxt;
-  byId('sMoney').textContent = gs.money; byId('sPlace').textContent = gs.place;
-  var box = byId('sItems'); box.innerHTML = '';
-  String(gs.items).split(/[,、]/).forEach(function(x){
-    x = x.trim(); if(!x) return;
-    var s = document.createElement('span'); s.textContent = '🎒 ' + x; box.appendChild(s);
+  byId('sLv').textContent = gs.lv; byId('sElem').textContent = gs.elem; byId('sMoney').textContent = gs.money;
+  byId('sPlace').textContent = gs.place; byId('sTime').textContent = gs.time + ' / ' + gs.weather;
+  var st = byId('sStats'); st.innerHTML = '';
+  for(var k in gs.stats) st.insertAdjacentHTML('beforeend', '<div>' + k + '<b>' + gs.stats[k] + '</b></div>');
+  chips(byId('sSkills'), gs.skills); chips(byId('sItems'), gs.items);
+  var rb = byId('sRels'); rb.innerHTML = '';
+  var rk = Object.keys(rels);
+  if(!rk.length) rb.innerHTML = '<div class="empty">ยังไม่มีความสัมพันธ์</div>';
+  rk.forEach(function(n){
+    var v = rels[n], d = document.createElement('div'); d.className = 'rel';
+    d.innerHTML = '<span>' + esc(n) + '</span><i><u style="width:' + Math.max(0, v) + '%"></u></i><span>' + (v < 0 ? '💔 ' : '❤ ') + v + '</span>';
+    rb.appendChild(d);
   });
 }
 
@@ -444,95 +560,128 @@ function makeAvatar(name, src){
   d.textContent = name.charAt(0) || '?'; return d;
 }
 
-/* ---------- chat render ---------- */
-function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function fmt(s){
-  return esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\*(.+?)\*/g,'<i>$1</i>').replace(/\n/g,'<br>');
+/* ---------- text / tags ---------- */
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function fmt(s){ return esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\*(.+?)\*/g,'<i>$1</i>').replace(/\n/g,'<br>'); }
+function stripTags(t){
+  return t.replace(/\[NPC:\s*([^,\]]+?)\s*,[^\]]*\]/g, '\n$1: ').replace(/\[(Status Update|Scene|Choices|Action|Time|Rel):[^\]]*\]/g, '').trim();
 }
-function parseTags(text){
-  var st = text.match(/\[Status Update:\s*([^\]]*)\]/);
-  if(st){ applyStatus(st[1]); text = text.replace(st[0], ''); }
-  var sc = text.match(/\[Scene:\s*([^\]]*)\]/);
-  if(sc){ currentScenePrompt = sc[1]; text = text.replace(sc[0], ''); }
+function tag(text, name, fn){
+  return text.replace(new RegExp('\\[' + name + ':\\s*([^\\]]*)\\]', 'g'), function(m, v){ fn(v); return ''; });
+}
+function parseTags(text, replay){
+  lastChoices = []; lastAction = "";
+  text = tag(text, 'Choices', function(v){ lastChoices = v.split('|').map(function(x){ return x.trim(); }).filter(Boolean).slice(0, 5); });
+  text = tag(text, 'Action', function(v){ lastAction = v.trim(); });
+  text = tag(text, 'Status Update', function(v){ if(!replay) applyStatus(v); });
+  text = tag(text, 'Time', function(v){ if(!replay) setTime(v); });
+  text = tag(text, 'Rel', function(v){
+    if(replay) return;
+    var m = v.match(/^\s*([^,]+?)\s*,\s*([+-]?\d+)/); if(!m) return;
+    rels[m[1]] = Math.max(-100, Math.min(100, (rels[m[1]] || 0) + (+m[2])));
+    renderStatus();
+  });
+  text = tag(text, 'Scene', function(v){
+    var p = v.split('|'), name = gs.place, desc = v;
+    if(p.length > 1){ name = p[0].trim(); desc = p.slice(1).join('|').trim(); }
+    currentScenePrompt = desc;
+    if(!replay) sceneChange(name, desc);
+  });
   return text;
 }
-function renderAI(div, text){
+
+/* ---------- visual novel engine ---------- */
+function buildBeats(text){
   var re = /\[NPC:\s*([^,\]]+?)\s*,\s*อารมณ์:\s*([^\]]*?)\]/g;
-  var parts = [], last = 0, m;
+  var parts = [], last = 0, m, out = [], pend = null;
+  lastNames = [];
   while((m = re.exec(text))){
-    parts.push({t:'text', v:text.slice(last, m.index)});
-    parts.push({t:'npc', name:m[1].trim(), emo:m[2].trim()});
+    parts.push({ t:'t', v:text.slice(last, m.index) });
+    parts.push({ t:'n', name:m[1].trim(), emo:m[2].trim() });
     last = re.lastIndex;
   }
-  parts.push({t:'text', v:text.slice(last)});
-  var row = null;
+  parts.push({ t:'t', v:text.slice(last) });
   parts.forEach(function(p){
-    if(p.t === 'npc'){
-      row = document.createElement('div'); row.className = 'npc-row';
-      var body = document.createElement('div'); body.className = 'npc-body';
-      var nm = document.createElement('div'); nm.className = 'npc-name';
-      nm.innerHTML = esc(p.name) + '<span class="npc-emo">' + esc(p.emo) + '</span>';
-      var tx = document.createElement('div'); tx.className = 'npc-text';
-      body.appendChild(nm); body.appendChild(tx);
-      row.appendChild(makeAvatar(p.name, pickEmotionImg(findNpc(p.name), p.emo)));
-      row.appendChild(body);
-      row._tx = tx; div.appendChild(row);
-    } else if(p.v.trim()){
-      if(row){ row._tx.innerHTML = fmt(p.v.trim()); row = null; }
-      else { var n = document.createElement('div'); n.className = 'narr'; n.innerHTML = fmt(p.v.trim()); div.appendChild(n); }
-    }
+    if(p.t === 'n'){ pend = p; if(lastNames.indexOf(p.name) < 0) lastNames.push(p.name); return; }
+    var lines = p.v.split(/\n+/).map(function(x){ return x.trim(); }).filter(Boolean);
+    lines.forEach(function(l){
+      if(pend){ out.push({ who:pend.name, emo:pend.emo, text:l }); pend = null; }
+      else out.push({ who:null, text:l });
+    });
   });
+  return out;
 }
-function appendMessage(role, text, persist){
-  var chat = byId('chat');
-  var div = document.createElement('div');
-  div.className = 'msg ' + role;
-  if(role === 'ai'){ renderAI(div, parseTags(text)); } else { div.textContent = text; }
-  chat.appendChild(div);
-  chat.scrollTop = chat.scrollHeight;
-  if(persist) saveState();
+function ctrlShow(on){
+  byId('ctrl').style.display = on ? 'block' : 'none';
+  if(on) renderChoices();
 }
+function renderChoices(){
+  var box = byId('choices'); box.innerHTML = '';
+  lastChoices.forEach(function(c){
+    var b = document.createElement('button'); b.textContent = c;
+    b.onclick = function(){ byId('userInput').value = c; sendMessage(); };
+    box.appendChild(b);
+  });
+  var lastAi = chatHistory.length ? chatHistory[chatHistory.length - 1] : null;
+  byId('diceBtn').className = 'dice' + (lastAi && lastAi.role === 'model' && lastAi.parts[0].text.indexOf('ทอยลูกเต๋า') >= 0 ? ' pulse' : '');
+}
+function setDlg(name, text, narr){
+  clearInterval(typing); typing = null;
+  var n = byId('dName'); n.style.display = name ? 'block' : 'none'; n.innerHTML = name ? esc(name) : '';
+  var t = byId('dText'); t.className = narr ? 'narr' : ''; t.innerHTML = fmt(text);
+  byId('dNext').style.visibility = 'hidden';
+}
+function playReply(text, replay){
+  beats = buildBeats(parseTags(text, replay)); bi = 0;
+  if(!beats.length){ showSprite(null); setDlg('', '(ไม่มีข้อความ)', true); finish(); return; }
+  if(replay){ bi = beats.length - 1; showBeat(true); finish(); }
+  else { ctrlShow(false); showBeat(false); }
+}
+function showSprite(name, emo){
+  var sp = byId('sprite'); sp.innerHTML = '';
+  if(!name){ sp.style.display = 'none'; return; }
+  sp.style.display = 'flex';
+  var src = pickEmotionImg(findNpc(name), emo || '');
+  sp.appendChild(src ? (function(){ var i = new Image(); i.src = src; return i; })() : makeAvatar(name, null));
+}
+function showBeat(instant){
+  var b = beats[bi];
+  showSprite(b.who, b.emo);
+  var nm = byId('dName');
+  if(b.who){
+    var heart = rels[b.who] !== undefined ? ' <small>' + (rels[b.who] < 0 ? '💔' : '❤') + ' ' + rels[b.who] + '</small>' : '';
+    nm.style.display = 'block'; nm.innerHTML = esc(b.who) + '<small>' + esc(b.emo) + '</small>' + heart;
+  } else nm.style.display = 'none';
+  var t = byId('dText'); t.className = b.who ? '' : 'narr';
+  fullHtml = fmt(b.text);
+  clearInterval(typing); typing = null;
+  byId('dNext').style.visibility = 'hidden';
+  if(instant){ t.innerHTML = fullHtml; byId('dNext').style.visibility = bi < beats.length - 1 ? 'visible' : 'hidden'; return; }
+  var plain = b.text.replace(/\*+/g, ''), i = 0; t.textContent = '';
+  typing = setInterval(function(){ i += 2; t.textContent = plain.slice(0, i); if(i >= plain.length) doneType(); }, 22);
+}
+function doneType(){
+  clearInterval(typing); typing = null;
+  byId('dText').innerHTML = fullHtml;
+  byId('dNext').style.visibility = 'visible';
+}
+function advance(){
+  if(typing){ doneType(); return; }
+  if(!beats.length || busy) return;
+  if(bi < beats.length - 1){ bi++; showBeat(false); } else finish();
+}
+function finish(){
+  byId('dNext').style.visibility = 'hidden';
+  ctrlShow(true);
+}
+function skipAll(){ if(!beats.length) return; bi = beats.length - 1; showBeat(true); finish(); }
+
 function showWelcome(ready){
-  appendMessage("ai", ready
-    ? "ระบบพร้อมแล้ว! พิมพ์ 'เริ่มเกม' หรือบรรยายสิ่งที่คุณอยากทำเพื่อเข้าสู่โลกเอลดราเซียได้เลยค่ะ"
-    : "ยินดีต้อนรับสู่เอลดราเซีย! กดปุ่ม **⚙️ ตั้งค่า** ด้านบนเพื่อเลือก AI และใส่ **API Key** ก่อนเริ่มการผจญภัยค่ะ", false);
-}
-
-/* ---------- scene ---------- */
-function sceneFullPrompt(){ return currentScenePrompt + (cfg.imgStyle ? ', ' + cfg.imgStyle : ''); }
-function generateScene(){
-  if(cfg.imgProv === 'off'){ alert("ปิดการสร้างภาพอยู่ เปิดได้ในหน้าตั้งค่า"); return; }
-  if(!currentScenePrompt){ alert("ยังไม่มีฉากใหม่ให้วาดค่ะ ลองเดินทางไปที่อื่นก่อนนะคะ"); return; }
-  var chat = byId('chat');
-  var div = document.createElement('div'); div.className = 'msg ai';
-  var label = document.createElement('div'); label.textContent = '🎨 กำลังวาดฉาก...';
-  div.appendChild(label); chat.appendChild(div); chat.scrollTop = chat.scrollHeight;
-
-  var show = function(url){
-    var img = document.createElement('img'); img.className = 'scene-img'; img.alt = 'Scene';
-    img.onclick = function(){ if(confirm("ตั้งรูปนี้เป็นฉากหลังของแชท?")) setBackground(url); };
-    img.onload = function(){ label.textContent = '🎨 ฉากล่าสุด'; chat.scrollTop = chat.scrollHeight; };
-    img.onerror = function(){ label.textContent = 'โหลดรูปไม่สำเร็จ ลองกดอีกครั้งนะ'; };
-    img.src = url;
-    var hint = document.createElement('div'); hint.className = 'hint'; hint.textContent = 'แตะรูปเพื่อตั้งเป็นฉากหลัง';
-    div.appendChild(img); div.appendChild(hint);
-  };
-
-  if(cfg.imgProv === 'pollinations'){
-    show('https://image.pollinations.ai/prompt/' + encodeURIComponent(sceneFullPrompt()) + '?width=768&height=512&nologo=true');
-  } else {
-    var headers = { 'Content-Type': 'application/json' };
-    if(cfg.imgKey) headers['Authorization'] = 'Bearer ' + cfg.imgKey;
-    fetch(cfg.imgBase + '/images/generations', {
-      method: 'POST', headers: headers,
-      body: JSON.stringify({ model: cfg.imgModel, prompt: sceneFullPrompt(), n: 1, size: '1024x1024' })
-    }).then(function(r){ return r.json(); }).then(function(d){
-      if(d.error) throw new Error(d.error.message || JSON.stringify(d.error));
-      var it = d.data && d.data[0];
-      if(!it) throw new Error('ไม่ได้รับรูปจากเซิร์ฟเวอร์');
-      show(it.url ? it.url : 'data:image/png;base64,' + it.b64_json);
-    }).catch(function(e){ label.textContent = '❌ สร้างภาพไม่สำเร็จ: ' + e.message; });
-  }
+  beats = []; showSprite(null);
+  setDlg('ระบบ', ready
+    ? "ระบบพร้อมแล้ว! พิมพ์ 'เริ่มเกม' หรือบรรยายสิ่งที่คุณอยากทำเพื่อเข้าสู่โลกเอลดราเซีย"
+    : "ยินดีต้อนรับสู่เอลดราเซีย! กดปุ่ม ⚙️ ด้านบนขวาเพื่อเลือก AI และใส่ API Key ก่อนเริ่มการผจญภัย", true);
+  lastChoices = ready ? ['เริ่มเกม'] : []; ctrlShow(true);
 }
 
 /* ---------- cast manager ---------- */
@@ -547,28 +696,29 @@ function renderCast(){
       var it = document.createElement('div'); it.className = 'cast-item';
       var cnt = Object.keys(npcs[n].emotions || {}).length;
       var info = document.createElement('div');
-      info.innerHTML = '<b>' + esc(n) + '</b><br><small>อารมณ์ ' + cnt + '/8</small>';
+      info.innerHTML = '<b>' + esc(n) + '</b><br><small>อารมณ์ ' + cnt + '/8' + (npcs[n].look ? ' · มีลักษณะภายนอก' : '') + '</small>';
       it.appendChild(makeAvatar(n, npcs[n].portrait)); it.appendChild(info);
-      it.onclick = function(){ draftOld = n; draft = JSON.parse(JSON.stringify(npcs[n])); draft.name = n; renderCast(); };
+      it.onclick = function(){ draftOld = n; draft = JSON.parse(JSON.stringify(npcs[n])); draft.name = n; draft.emotions = draft.emotions || {}; renderCast(); };
       sh.appendChild(it);
     });
     sh.insertAdjacentHTML('beforeend', '<button class="btn" onclick="newDraft()">＋ เพิ่มตัวละคร</button><button class="btn grey" onclick="closeModal(\'castModal\')">ปิด</button>');
     return;
   }
   sh.innerHTML = '<h3>' + (draftOld ? 'แก้ไขตัวละคร' : 'เพิ่มตัวละคร') + '</h3>' +
-    '<label>ชื่อ (ต้องตรงกับชื่อที่ GM ใช้ในแท็ก)</label><input type="text" id="dName" placeholder="เช่น เอเลน่า">' +
+    '<label>ชื่อ (ต้องตรงกับชื่อที่ GM ใช้ในแท็ก)</label><input type="text" id="dNameIn" placeholder="เช่น เอเลน่า">' +
+    '<label>ลักษณะภายนอก (ภาษาอังกฤษ ใช้แนบพรอมต์ภาพให้หน้าตาคงที่)</label><input type="text" id="dLook" placeholder="silver long hair, blue eyes, red cloak, knight armor">' +
     '<label>รูปโปรไฟล์ (ใช้เมื่อไม่มีรูปอารมณ์ที่ตรงกัน)</label><div class="tile big" id="dPortrait"><span>＋</span></div>' +
-    '<label>รูปอารมณ์ (ไม่บังคับ)</label><div class="tile-grid" id="dEmo"></div>';
-  var nameInput = byId('dName'); nameInput.value = draft.name;
-  nameInput.oninput = function(){ draft.name = nameInput.value; };
+    '<label>รูปอารมณ์ (ไม่บังคับ ยืนกลางจอตอนพูด)</label><div class="tile-grid" id="dEmo"></div>';
+  var ni = byId('dNameIn'); ni.value = draft.name; ni.oninput = function(){ draft.name = ni.value; };
+  var li = byId('dLook'); li.value = draft.look || ''; li.oninput = function(){ draft.look = li.value; };
   var setTile = function(el, src){ el.style.backgroundImage = src ? 'url("' + src + '")' : 'none'; if(src) el.classList.add('has'); else el.classList.remove('has'); };
   var pt = byId('dPortrait'); setTile(pt, draft.portrait);
-  pt.onclick = function(){ pickImage(function(d){ draft.portrait = d; setTile(pt, d); }, 512, .85); };
+  pt.onclick = function(){ pickImage(function(d){ draft.portrait = d; setTile(pt, d); }, 768, .85); };
   var grid = byId('dEmo');
   Object.keys(EMOTIONS).forEach(function(slot){
     var w = document.createElement('div');
     var t = document.createElement('div'); t.className = 'tile'; t.innerHTML = '<span>＋</span>'; setTile(t, draft.emotions[slot]);
-    t.onclick = function(){ pickImage(function(d){ draft.emotions[slot] = d; setTile(t, d); }, 512, .85); };
+    t.onclick = function(){ pickImage(function(d){ draft.emotions[slot] = d; setTile(t, d); }, 768, .85); };
     var l = document.createElement('div'); l.className = 'tile-lab'; l.textContent = slot;
     w.appendChild(t); w.appendChild(l); grid.appendChild(w);
   });
@@ -576,122 +726,190 @@ function renderCast(){
     (draftOld ? '<button class="btn red" onclick="deleteDraft()">ลบตัวละคร</button>' : '') +
     '<button class="btn grey" onclick="draft=null;renderCast()">กลับ</button>');
 }
-function newDraft(){ draftOld = null; draft = { name:'', portrait:'', emotions:{} }; renderCast(); }
+function newDraft(){ draftOld = null; draft = { name:'', portrait:'', look:'', emotions:{} }; renderCast(); }
 function saveDraft(){
   var name = draft.name.trim();
   if(!name){ alert("ใส่ชื่อตัวละครก่อนนะ"); return; }
   if(draftOld && draftOld !== name) delete npcs[draftOld];
-  npcs[name] = { portrait: draft.portrait, emotions: draft.emotions };
+  npcs[name] = { portrait:draft.portrait, look:draft.look || '', emotions:draft.emotions };
   if(saveNpcs()){ draft = null; renderCast(); }
 }
-function deleteDraft(){
-  if(!confirm("ลบตัวละครนี้?")) return;
-  delete npcs[draftOld]; saveNpcs(); draft = null; renderCast();
-}
+function deleteDraft(){ if(!confirm("ลบตัวละครนี้?")) return; delete npcs[draftOld]; saveNpcs(); draft = null; renderCast(); }
 
-/* ---------- game ---------- */
-function rollDice(){
-  var dice = Math.floor(Math.random() * 20) + 1;
-  byId('userInput').value = '[ทอยลูกเต๋าได้แต้ม: ' + dice + '/20]';
-  sendMessage();
-}
-
-function getPrompt(){ return cfg.prompt && cfg.prompt.trim() ? cfg.prompt : DEFAULT_PROMPT; }
-function errMsg(d, fallback){
-  if(d && d.error){ return typeof d.error === 'string' ? d.error : (d.error.message || JSON.stringify(d.error)); }
-  return fallback;
-}
-
-async function callChat(){
-  var sp = getPrompt();
-  if(cfg.provider === 'gemini'){
-    var r = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + cfg.gemModel + ':generateContent?key=' + cfg.gemKey, {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        system_instruction: { parts: [{ text: sp }] },
-        contents: chatHistory,
-        safetySettings: [
-          { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },
-          { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_NONE" },
-          { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
-          { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" }
-        ]
-      })
-    });
-    var d = await r.json();
-    if(d.error) throw new Error(errMsg(d));
-    var c = d.candidates && d.candidates[0];
-    var t = c && c.content && c.content.parts && c.content.parts[0] && c.content.parts[0].text;
-    if(!t) throw new Error("ไม่ได้รับคำตอบ (" + ((d.promptFeedback && d.promptFeedback.blockReason) || (c && c.finishReason) || "ไม่ทราบสาเหตุ") + ") ลองส่งใหม่อีกครั้ง");
-    return t;
-  }
-  var msgs = chatHistory.map(function(h){ return { role: h.role === 'user' ? 'user' : 'assistant', content: h.parts[0].text }; });
-  if(cfg.provider === 'claude'){
-    var r2 = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json', 'x-api-key': cfg.claudeKey,
-        'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true'
-      },
-      body: JSON.stringify({ model: cfg.claudeModel, max_tokens: 2500, system: sp, messages: msgs })
-    });
-    var d2 = await r2.json();
-    if(d2.error) throw new Error(errMsg(d2));
-    var out = (d2.content || []).map(function(b){ return b.text || ''; }).join('');
-    if(!out) throw new Error("ไม่ได้รับคำตอบจาก Claude (" + (d2.stop_reason || "ไม่ทราบสาเหตุ") + ")");
-    return out;
-  }
-  var headers = { 'Content-Type': 'application/json' };
-  if(cfg.oaiKey) headers['Authorization'] = 'Bearer ' + cfg.oaiKey;
-  var r3 = await fetch(cfg.oaiBase + '/chat/completions', {
-    method: 'POST', headers: headers,
-    body: JSON.stringify({ model: cfg.oaiModel, messages: [{ role: 'system', content: sp }].concat(msgs) })
+/* ---------- locations manager ---------- */
+function openLocs(){ renderLocs(); openModal('locModal'); }
+function renderLocs(){
+  var sh = byId('locSheet'); sh.innerHTML = '<h3>📍 สถานที่และภาพฉากหลัง</h3><div class="note">อัปโหลดภาพไว้ตามชื่อสถานที่ (ตรงกับชื่อในแท็ก Scene) ถ้ายังไม่มี ระบบจะสร้างให้อัตโนมัติ</div>';
+  var ks = Object.keys(locs);
+  if(!ks.length) sh.insertAdjacentHTML('beforeend', '<div class="empty">ยังไม่มีสถานที่</div>');
+  ks.forEach(function(k){
+    var it = document.createElement('div'); it.className = 'cast-item';
+    var av = document.createElement('div'); av.className = 'av'; av.style.backgroundImage = locs[k].img ? 'url("' + locs[k].img + '")' : 'none';
+    var info = document.createElement('div'); info.innerHTML = '<b>' + esc(k) + '</b><br><small>แตะเพื่อเปลี่ยนภาพ</small>';
+    var x = document.createElement('button'); x.className = 'x'; x.textContent = '✕';
+    x.onclick = function(e){ e.stopPropagation(); if(confirm('ลบ ' + k + '?')){ delete locs[k]; saveLocs(); renderLocs(); } };
+    it.onclick = function(){ pickImage(function(d){ locs[k] = { img:d }; if(saveLocs()) renderLocs(); }, 1280, .72); };
+    it.appendChild(av); it.appendChild(info); it.appendChild(x); sh.appendChild(it);
   });
-  var d3 = await r3.json();
-  if(d3.error) throw new Error(errMsg(d3));
-  var ch = d3.choices && d3.choices[0];
-  var o3 = ch && ch.message && ch.message.content;
-  if(!o3) throw new Error("ไม่ได้รับคำตอบจากเซิร์ฟเวอร์");
-  return o3;
+  sh.insertAdjacentHTML('beforeend', '<button class="btn" onclick="addLoc()">＋ เพิ่มสถานที่</button><button class="btn grey" onclick="closeModal(\'locModal\')">ปิด</button>');
+}
+function addLoc(){
+  var n = prompt("ชื่อสถานที่ (ภาษาไทย ตรงกับที่ GM ใช้)"); if(!n || !n.trim()) return;
+  n = n.trim();
+  pickImage(function(d){ locs[n] = { img:d }; if(store('eld_locs', JSON.stringify(locs))) renderLocs(); }, 1280, .72);
 }
 
+/* ---------- AI ---------- */
+function getPrompt(){ return cfg.prompt && cfg.prompt.trim() ? cfg.prompt : DEFAULT_PROMPT; }
+function errMsg(d, fb){ if(d && d.error){ return typeof d.error === 'string' ? d.error : (d.error.message || JSON.stringify(d.error)); } return fb; }
 function hasKey(){
   if(cfg.provider === 'gemini') return !!cfg.gemKey;
   if(cfg.provider === 'claude') return !!cfg.claudeKey;
   return !!cfg.oaiBase && !!cfg.oaiModel;
 }
+function buildSystem(){
+  var s = getPrompt() + '\n' + TAGS;
+  if(cfg.lore.trim()) s += '\n[Lorebook]\n' + cfg.lore.trim() + '\n';
+  if(mem) s += '\n[สรุปเรื่องราวที่ผ่านมา]\n' + mem + '\n';
+  var rl = Object.keys(rels).map(function(n){ return n + ' ' + rels[n]; }).join(', ');
+  s += '\n[สถานะปัจจุบัน] HP ' + gs.hp + '/' + gs.hpMax + ', เงิน: ' + gs.money + ', สถานที่: ' + gs.place + ', เวลา: ' + gs.time + ', อากาศ: ' + gs.weather +
+    ', เลเวล: ' + gs.lv + ', ธาตุ: ' + gs.elem + ', สกิล: ' + gs.skills + ', ไอเทม: ' + gs.items + (rl ? ', ความสัมพันธ์: ' + rl : '') + '\n';
+  if(rules.trim()) s += '\n[กฎที่เรียนรู้จากข้อผิดพลาดก่อนหน้า ห้ามทำผิดซ้ำเด็ดขาด]\n' + rules.trim() + '\n';
+  return s;
+}
+function buildMsgs(){
+  var h = chatHistory.slice(-20);
+  while(h.length && h[0].role !== 'user') h.shift();
+  return h.map(function(m){ return { role: m.role === 'user' ? 'user' : 'assistant', content: m.parts[0].text }; });
+}
+async function callAI(sp, msgs, maxTok){
+  if(cfg.provider === 'gemini'){
+    var r = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + cfg.gemModel + ':generateContent?key=' + cfg.gemKey, {
+      method:'POST', headers:{ 'Content-Type':'application/json' },
+      body: JSON.stringify({
+        system_instruction:{ parts:[{ text:sp }] },
+        contents: msgs.map(function(m){ return { role: m.role === 'user' ? 'user' : 'model', parts:[{ text:m.content }] }; }),
+        safetySettings: ["HARASSMENT","HATE_SPEECH","SEXUALLY_EXPLICIT","DANGEROUS_CONTENT"].map(function(c){ return { category:'HARM_CATEGORY_' + c, threshold:'BLOCK_NONE' }; })
+      })
+    });
+    var d = await r.json(); if(d.error) throw new Error(errMsg(d));
+    var c = d.candidates && d.candidates[0];
+    var t = c && c.content && c.content.parts && c.content.parts[0] && c.content.parts[0].text;
+    if(!t) throw new Error("ไม่ได้รับคำตอบ (" + ((d.promptFeedback && d.promptFeedback.blockReason) || (c && c.finishReason) || "ไม่ทราบสาเหตุ") + ") ลองส่งใหม่อีกครั้ง");
+    return t;
+  }
+  if(cfg.provider === 'claude'){
+    var r2 = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json', 'x-api-key':cfg.claudeKey, 'anthropic-version':'2023-06-01', 'anthropic-dangerous-direct-browser-access':'true' },
+      body: JSON.stringify({ model:cfg.claudeModel, max_tokens:maxTok || 2500, system:sp, messages:msgs })
+    });
+    var d2 = await r2.json(); if(d2.error) throw new Error(errMsg(d2));
+    var out = (d2.content || []).map(function(b){ return b.text || ''; }).join('');
+    if(!out) throw new Error("ไม่ได้รับคำตอบจาก Claude (" + (d2.stop_reason || "ไม่ทราบสาเหตุ") + ")");
+    return out;
+  }
+  var headers = { 'Content-Type':'application/json' };
+  if(cfg.oaiKey) headers['Authorization'] = 'Bearer ' + cfg.oaiKey;
+  var r3 = await fetch(cfg.oaiBase + '/chat/completions', {
+    method:'POST', headers:headers,
+    body: JSON.stringify({ model:cfg.oaiModel, messages:[{ role:'system', content:sp }].concat(msgs) })
+  });
+  var d3 = await r3.json(); if(d3.error) throw new Error(errMsg(d3));
+  var o3 = d3.choices && d3.choices[0] && d3.choices[0].message && d3.choices[0].message.content;
+  if(!o3) throw new Error("ไม่ได้รับคำตอบจากเซิร์ฟเวอร์");
+  return o3;
+}
 
+/* ---------- game flow ---------- */
+function rollDice(){
+  var dice = Math.floor(Math.random() * 20) + 1;
+  byId('userInput').value = '[ทอยลูกเต๋าได้แต้ม: ' + dice + '/20]';
+  sendMessage();
+}
+async function runTurn(){
+  busy = true; ctrlShow(false); showSprite(null); setDlg('GM', 'กำลังคิด...', true);
+  try {
+    var reply = await callAI(buildSystem(), buildMsgs());
+    chatHistory.push({ role:'model', parts:[{ text:reply }] });
+    busy = false; playReply(reply, false);
+    return true;
+  } catch(e){
+    busy = false; lastChoices = []; setDlg('ระบบ', '❌ เกิดข้อผิดพลาด: ' + e.message, true); ctrlShow(true);
+    return false;
+  } finally { saveState(); maybeSummarize(); }
+}
 async function sendMessage(){
-  var inputField = byId('userInput');
-  var text = inputField.value.trim();
+  if(busy) return;
+  var inp = byId('userInput'), text = inp.value.trim();
   if(!text) return;
   if(!hasKey()){ alert("ยังตั้งค่า AI ไม่ครบ กรุณาใส่ข้อมูลในหน้าตั้งค่าก่อนค่ะ"); openSettings(); return; }
-
-  appendMessage('user', text, false);
-  inputField.value = '';
-  byId('loading').style.display = 'block';
-  chatHistory.push({ role: "user", parts: [{ text: text }] });
-
+  inp.value = '';
+  chatHistory.push({ role:'user', parts:[{ text:text }] });
+  var ok = await runTurn();
+  if(!ok){ chatHistory.pop(); inp.value = text; saveState(); }
+}
+function lastModelIdx(){ for(var i = chatHistory.length - 1; i >= 0; i--){ if(chatHistory[i].role === 'model') return i; } return -1; }
+async function regenerate(){
+  if(busy) return;
+  var n = chatHistory.length;
+  if(!n || chatHistory[n - 1].role !== 'model'){ alert("ยังไม่มีคำตอบให้สร้างใหม่"); return; }
+  var saved = chatHistory.pop();
+  var ok = await runTurn();
+  if(!ok){ chatHistory.push(saved); saveState(); }
+}
+function rewind(){
+  if(busy) return;
+  if(chatHistory.length < 2 || !confirm("ย้อนกลับ 1 เทิร์น (ลบข้อความของคุณและ GM ล่าสุด)? สถานะ HP/เงิน จะไม่ย้อนตาม")) return;
+  if(chatHistory[chatHistory.length - 1].role === 'model') chatHistory.pop();
+  if(chatHistory.length && chatHistory[chatHistory.length - 1].role === 'user') chatHistory.pop();
+  saveState();
+  var i = lastModelIdx();
+  if(i >= 0) playReply(chatHistory[i].parts[0].text, true); else showWelcome(hasKey());
+}
+function editLast(){
+  var i = lastModelIdx(); if(i < 0){ alert("ยังไม่มีข้อความให้แก้"); return; }
+  byId('eText').value = chatHistory[i].parts[0].text; openModal('editModal');
+}
+function editSave(){
+  var i = lastModelIdx(); if(i < 0) return;
+  chatHistory[i].parts[0].text = byId('eText').value; saveState(); closeModal('editModal');
+  playReply(chatHistory[i].parts[0].text, true);
+}
+function reportMistake(){
+  var t = prompt("GM ทำผิดอะไร? เขียนเป็นกฎสั้นๆ เช่น \"ห้ามลืมว่าเอเลน่าแพ้ถั่ว\" หรือ \"อย่าตอบยาวเกินไป\"");
+  if(!t || !t.trim()) return;
+  rules += (rules ? '\n' : '') + '- ' + t.trim(); saveState();
+  if(confirm("จดเป็นกฎแล้ว ให้ GM เขียนคำตอบล่าสุดใหม่ตอนนี้เลยไหม?")) regenerate();
+}
+async function maybeSummarize(){
+  if(chatHistory.length <= 40 || summing || !hasKey()) return;
+  summing = true;
   try {
-    var reply = await callChat();
-    chatHistory.push({ role: "model", parts: [{ text: reply }] });
-    appendMessage('ai', reply, false);
-  } catch(error){
-    appendMessage('ai', '❌ เกิดข้อผิดพลาด: ' + error.message, false);
-    chatHistory.pop();
-  } finally {
-    byId('loading').style.display = 'none';
-    saveState();
-  }
+    var old = chatHistory.slice(0, 20);
+    var txt = old.map(function(m){ return (m.role === 'user' ? 'ผู้เล่น: ' : 'GM: ') + stripTags(m.parts[0].text); }).join('\n');
+    var s = await callAI('คุณคือผู้จดบันทึกเรื่องราว สรุปเหตุการณ์สำคัญ ชื่อตัวละคร ความสัมพันธ์ สถานที่ ไอเทม และสิ่งที่สัญญาหรือค้างคาไว้ เป็นภาษาไทยกระชับ ไม่เกิน 12 บรรทัด ห้ามแต่งเพิ่ม', [{ role:'user', content:txt }], 800);
+    mem = (mem ? mem + '\n' : '') + s.trim();
+    chatHistory.splice(0, 20); saveState();
+  } catch(e){}
+  summing = false;
+}
+function openHistory(){
+  var b = byId('histBody'); b.innerHTML = '';
+  if(!chatHistory.length) b.innerHTML = '<div class="empty">ยังไม่มีประวัติ</div>';
+  chatHistory.forEach(function(m){
+    var d = document.createElement('div'); d.className = 'hmsg ' + (m.role === 'user' ? 'u' : 'a');
+    d.textContent = m.role === 'user' ? m.parts[0].text : stripTags(m.parts[0].text); b.appendChild(d);
+  });
+  openModal('histModal'); b.parentNode.scrollTop = b.parentNode.scrollHeight;
 }
 
 /* ---------- init ---------- */
 window.onload = function(){
-  loadAll();
-  if(chatHistory.length){
-    chatHistory.forEach(function(h){ appendMessage(h.role === 'user' ? 'user' : 'ai', h.parts[0].text, false); });
-  } else { showWelcome(hasKey()); }
-  renderStatus();
+  loadAll(); renderStatus();
+  var i = lastModelIdx();
+  if(i >= 0){ playReply(chatHistory[i].parts[0].text, true); }
+  else showWelcome(hasKey());
 };
 </script>
 
@@ -702,6 +920,5 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-
 </body>
 </html>
